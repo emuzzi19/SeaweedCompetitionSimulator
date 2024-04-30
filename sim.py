@@ -8,6 +8,71 @@ from seaweed import seaweed
 N1 = seaweed('N1',10.86,0.098523,134.46)
 N2 = seaweed('N2',10.86,0.108391,170.69)
 
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QComboBox, QHBoxLayout
+
+class SeaweedSimulatorGUI(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('Seaweed Competition Simulation')
+        self.setFixedSize(700, 400)  
+        layout = QVBoxLayout()
+        
+        header = QLabel('<h2 style="color: green; text-align: center; line-height: 1">Seaweed Competition Simulation</h2>')
+        layout.addWidget(header)
+        
+         # Timesteps Input
+        timestepsLayout = QHBoxLayout()
+        self.timestepsInput = QLineEdit(self)
+        timestepsLayout.addWidget(QLabel('Time (Days):'))
+        timestepsLayout.addWidget(self.timestepsInput)
+        layout.addLayout(timestepsLayout)
+        
+        # Mode Dropdown
+        modeLayout = QHBoxLayout()
+        self.modeDropdown = QComboBox(self)
+        self.modeDropdown.addItems(['none', 'mode1', 'mode2'])  # Add your modes here
+        modeLayout.addWidget(QLabel('Mode:'))
+        modeLayout.addWidget(self.modeDropdown)
+        layout.addLayout(modeLayout)
+        
+         # Seaweed Species Dropdowns
+        speciesLayout = QHBoxLayout()
+        self.species1Dropdown = QComboBox(self)
+        self.species1Dropdown.addItems(['N1', 'N2'])  # Add your seaweed species here
+        speciesLayout.addWidget(QLabel('Seaweed Species 1:'))
+        speciesLayout.addWidget(self.species1Dropdown)
+        
+        self.species2Dropdown = QComboBox(self)
+        self.species2Dropdown.addItems(['N1', 'N2'])  # Add your seaweed species here
+        speciesLayout.addWidget(QLabel('Seaweed Species 2:'))
+        speciesLayout.addWidget(self.species2Dropdown)
+        
+        layout.addLayout(speciesLayout)
+        
+       # Size Input
+        sizeLayout = QHBoxLayout()
+        self.sizeInput = QLineEdit(self)
+        sizeLayout.addWidget(QLabel('Size:'))
+        sizeLayout.addWidget(self.sizeInput)
+        layout.addLayout(sizeLayout)
+        
+        # Start Simulation Button
+        self.startButton = QPushButton('Start Simulation', self)
+        self.startButton.clicked.connect(self.start_simulation)
+        layout.addWidget(self.startButton)
+        
+        self.setLayout(layout)
+    
+    def start_simulation(self):
+        timesteps = int(self.timestepsInput.text())
+        mode = self.modeDropdown.currentText()
+        species1 = self.species1Dropdown.currentText()
+        species2 = self.species2Dropdown.currentText()
+        size = float(self.sizeInput.text())
+        print(f"Starting simulation with: Timesteps: {timesteps}, Mode: {mode}, Species 1: {species1}, Species 2: {species2}, Size: {size}")
+        sim(timesteps, mode, size)
+
 
 # simulation logic
 #------------------------
@@ -53,4 +118,10 @@ def plot(x,values1, values2):
 
 #----------------------------------------------------------------------------------------------------
 
-sim(120,'none',400)
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = SeaweedSimulatorGUI()
+    window.show()
+    sys.exit(app.exec_())
+
+#sim(120,'none',400)
