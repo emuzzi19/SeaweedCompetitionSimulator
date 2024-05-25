@@ -21,7 +21,7 @@ To install the necessary dependencies for running the Seaweed Competition Simula
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/emuzzi19/SeaweedCompetitionSimulator.git
 ```
 # Navigate to the project directory
 cd seaweed-competition-simulator
