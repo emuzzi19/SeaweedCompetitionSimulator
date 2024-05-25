@@ -38,28 +38,28 @@ python sim.py
 ```
 ## Project Structure
 
-    -seaweed.py: Contains the Seaweed class and related functions.
-    -sim.py: Contains the GUI and simulation logic.
-    -requirements.txt: Lists the Python dependencies for the project.
-    -README.md: This README file.
-    -DataAnalysis.pdf: The results of running the simulation to answer my research objectives
-    -Documentation.pdf: A coding document to explain the functions and classes of the program
+    - seaweed.py: Contains the Seaweed class and related functions.
+    - sim.py: Contains the GUI and simulation logic.
+    - requirements.txt: Lists the Python dependencies for the project.
+    - README.md: This README file.
+    - DataAnalysis.pdf: The results of running the simulation to answer my research objectives
+    - Documentation.pdf: A coding document to explain the functions and classes of the program
     
 ## Methods
 
 The simulation is based on the Bio-Economic Seaweed Model (BESeM) equations. It simulates the growth of two seaweed species competing for limited space. The key components of the simulation include:
 
-    -Seaweed Agents: Each seaweed agent is characterized by its name, initial size, growth rate, and maximum size.
-    -Growth Equation: The weight of the seaweed over time is calculated using a logistic growth model.
-    -Population Control Modes: The simulation includes different population control methods such as manual removal, the introduction of collector urchins, and a combination of both.
+    - Seaweed Agents: Each seaweed agent is characterized by its name, initial size, growth rate, and maximum size.
+    - Growth Equation: The weight of the seaweed over time is calculated using a logistic growth model.
+    - Population Control Modes: The simulation includes different population control methods such as manual removal, the introduction of collector urchins, and a combination of both.
 
 ## Results
 
 The results of the simulation demonstrate how different population control methods impact the competition between seaweed species. Key findings include:
 
-    -High-frequency, low-percentage removal is more effective in supporting native species.
-    -The introduction of collector urchins reduces the growth rate of invasive species.
-    -Combining manual removal with collector urchins provides the most significant control over invasive species.
+    - High-frequency, low-percentage removal is more effective in supporting native species.
+    - The introduction of collector urchins reduces the growth rate of invasive species.
+    - Combining manual removal with collector urchins provides the most significant control over invasive species.
 
 ## Discussion
 
